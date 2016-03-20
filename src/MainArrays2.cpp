@@ -24,16 +24,19 @@ struct transaction {
 int main(){
 
 	//Test countGreaterNumbers
-	struct transaction Arr[5] = { { 60, "09-10-2003", "First" }, { 70, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" }, { 90, "21-05-2006", "Fourth" }, { 10, "29-11-2007", "Fifth" } };
-	int count = countGreaterNumbers(Arr, 5, "03-03-2005");
-
-	printf(" %d", count);
 
 	//Test findSingleOccurenceNumber
 
 	//Test mergeSortedArray
 
 	//Test sortedArraysCommonElements
+	struct transaction A[3] = { { 10, "09-10-2003", "First" }, { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" } };
+	struct transaction B[3] = { { 10, "09-10-2003", "First" }, { 20, "19-10-2004", "Second" }, { 30, "03-03-2005", "Third" } };
+	//int A[3] = { 1, 2, 3 }, B[3] = { 4, 5, 6 };
+	
+	struct transaction *s = sortedArraysCommonElements(A, 3, B, 3);
+
+	printf("%s", s[2].date);
 
 	return 0;
 }
