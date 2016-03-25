@@ -16,5 +16,34 @@ complexity .
 */
 
 int findSingleOccurenceNumber(int *A, int len) {
-	return -1;
+	
+	if (A == 0)   //if A is empty return -1
+		return -1;
+
+	int i;
+	int temp;
+	int count = 0;
+
+	//single for loop
+
+	for (i = 0; i < len; i++)
+	{
+		if (A[i] != -99 && count == 0)  //-99 is some random negative value
+			temp = A[i];
+
+		if (A[i] == temp)
+		{
+			A[i] = -99;    //if a number is traversed, insert some value to not check it again
+			count++;
+		}
+		if (count == 3)    //if count is 3 traverse the loop again
+		{
+			i = 0;
+			count = 0;
+		}
+		if (count == 1 && i == len-1) //if we count the number once and reach end of loop return number
+			return temp;
+	}
+
+	return temp;
 }
